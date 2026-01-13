@@ -1,0 +1,988 @@
+/* ==================================================================
+   CYBERSECURITY RESUME STYLESHEET
+   
+   Professional resume styling for Vijaya Sharathi
+   ================================================================== */
+
+:root {
+  --bg: #fffefe;
+  --text: #929292;
+  --text-white: #f3f1f1;
+  --accent: #0066cc;
+  --accent-dark: #004499;
+  --container: 1000px;
+  --gap: 1.25rem;
+  --header-h: 72px;
+  --radius: 8px;
+}
+
+/* ==================================================================
+   2. RESET & BASE STYLES
+   ==================================================================
+   - Make box-sizing predictable
+   - Set base font rendering and defaults
+   ================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+/* ==================================================================
+   3. CANVAS & HERO LAYOUT
+   ==================================================================
+   - Styles for the particle canvas and the content overlay.
+   ================================================================== */
+
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+}
+
+body.particles-disabled {
+    background: linear-gradient(135deg, #202020 0%, #1a0a2e 100%);
+    background-attachment: fixed;
+}
+
+.hero-content {
+    position: relative;
+    text-align: center;
+    color: var(--text);
+    padding: 60px 20px;
+    background: linear-gradient(to right, rgba(0,102,204,0.05), rgba(0,102,204,0.05));
+}
+
+.hero-title {
+    font-size: 3rem;
+    color: var(--accent-dark);
+    margin: 0.5rem 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.hero-lead {
+    color: #666;
+    max-width: 60ch;
+    margin: 0.5rem auto;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+}
+
+.hero-subtitle {
+    color: #0052cc !important;
+    font-size: 1.5rem !important;
+    margin: 0.5rem 0 !important;
+    font-weight: 600 !important;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+    font-size: 0.95rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.social-btn:hover {
+    background: var(--accent-dark);
+    transform: translateY(-3px);
+    opacity: 1;
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+}
+
+.social-btn svg {
+    width: 32px;
+    height: 32px;
+}
+
+
+/* ------------------------------------------------------------------
+   Layout helpers
+   ------------------------------------------------------------------ */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+
+/* ------------------------------------------------------------------
+   NAVIGATION
+   ------------------------------------------------------------------ */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 15px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent-dark);
+    margin: 0;
+}
+
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.menu-icon {
+    width: 40px;
+    height: 40px;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.menu-toggle.active .menu-icon {
+    transform: rotate(90deg);
+}
+
+.nav-bar-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    color: var(--text);
+}
+
+.nav-bar-links a {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-bar-links a:hover {
+    color: var(--accent);
+}
+
+/* Mobile navbar */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-bar-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        padding: 5rem 2rem 2rem;
+        gap: 2rem;
+        margin: 0;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        border-left: 2px solid rgba(119, 0, 255, 0.5);
+    }
+    
+    .nav-bar-links.active {
+        right: 0;
+    }
+    
+    .nav-bar-links a {
+        font-size: 1.2rem;
+        text-align: left;
+        width: 100%;
+    }
+    
+    .nav-bar-links a:hover {
+        font-size: 1.3rem;
+        padding-left: 0.5rem;
+    }
+}
+
+
+/* ------------------------------------------------------------------
+   HERO SECTION
+   ------------------------------------------------------------------ */
+
+.hero-bleed {
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: block;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+
+
+/* ------------------------------------------------------------------
+   ABOUT ME SECTION
+   ------------------------------------------------------------------ */
+
+/* Styles moved to RESUME SECTIONS below */
+
+/* Old styles removed - using new block layout */
+
+/* Tablet and smaller desktop */
+@media (max-width: 900px) {
+  .hero-title {
+    font-size: 3.5rem !important;
+  }
+  
+  .social-btn {
+    width: 44px !important;
+    height: 44px !important;
+  }
+  
+  .social-btn svg {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  
+  /* Stack aboutMe on tablets */
+  .aboutMe {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+  
+  .aboutMe-container-left {
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .aboutMe-container-right {
+    max-width: 100%;
+  }
+  
+  /* Make cert cards 2 columns on tablet */
+  .certCard-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  /* Stack about section on tablets */
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 640px) {
+  /* Scale hero title for mobile */
+  .hero-title {
+    font-size: 2.5rem !important;
+    padding: 0 1rem;
+  }
+  
+  .hero-lead {
+    font-size: 0.9rem !important;
+    padding: 0 1rem;
+  }
+  
+  /* Adjust social buttons for mobile */
+  .social-links {
+    gap: 1rem !important;
+  }
+  
+  .social-btn {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .social-btn svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  
+  /* Make container padding smaller on mobile */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Adjust header for mobile */
+  .aboutMe {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+  
+  /* Stack about image and content on mobile */
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .aboutMe-container-left {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .aboutMe-container-right {
+    max-width: 100%;
+    padding: 1rem;
+  }
+  
+  /* Make cert cards stack in 1 column on mobile */
+  .certCard-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  /* Adjust terminal for mobile */
+  .terminal {
+    margin: 1rem;
+    max-width: calc(100% - 2rem);
+  }
+  
+  .terminal-title {
+    font-size: 0.75rem;
+  }
+  
+  .terminal-body {
+    padding: 0.75rem;
+    font-size: 0.8rem;
+  }
+  
+  .terminal-input {
+    font-size: 0.8rem;
+    padding: 0.75rem;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 400px) {
+  .hero-title {
+    font-size: 2rem !important;
+  }
+  
+  .social-links {
+    gap: 0.75rem !important;
+  }
+  
+  .social-btn {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  
+  .social-btn svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+
+
+/* ------------------------------------------------------------------
+   UTILITY HELPERS
+   ------------------------------------------------------------------ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* ------------------------------------------------------------------
+   FOCUS STYLES & TOUCH OPTIMIZATION
+   ------------------------------------------------------------------ */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus {
+  outline: 3px solid rgba(255, 255, 255, 0.219);
+  outline-offset: 3px;
+}
+
+/* Improve touch targets for mobile */
+@media (max-width: 768px) {
+  button, a, .pad, .egg-box {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Prevent text selection on interactive elements */
+  .pad, .egg-box, .music-card, .graffiti-card, .skill-card {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Smooth scrolling on mobile */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+
+.toyTitle {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 3.75rem;
+  color: rgb(255, 255, 255);
+  margin: .25rem 0;
+  font-family: 'Share Tech Mono', monospace;
+  z-index: 10;
+}
+
+.toyTitle-text {
+  color: rgb(119, 0, 255);
+  background-color: #000; 
+  font-size: 20px;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border-radius: var(--radius);
+}
+
+@media (max-width: 640px) {
+  .toyTitle {
+    font-size: 2rem;
+    top: 10%;
+    width: 90%;
+  }
+  
+  .toyTitle-text {
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* ------------------------------------------------------------------
+   CONTROL PANEL FOR TOY PAGE
+   ------------------------------------------------------------------ */
+
+.control-panel {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border: 2px solid rgba(147, 51, 234, 0.5);
+  z-index: 100;
+  min-width: 280px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.control-panel h3 {
+  color: #9333ea;
+  margin: 0 0 1rem 0;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.2rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(147, 51, 234, 0.3);
+  padding-bottom: 0.5rem;
+}
+
+.control-group {
+  margin-bottom: 1rem;
+}
+
+.control-group label {
+  display: block;
+  color: #fff;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.control-group span {
+  color: #9333ea;
+  font-weight: bold;
+}
+
+.control-group input[type="range"] {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.control-group input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #9333ea;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.control-group input[type="range"]::-webkit-slider-thumb:hover {
+  background: #ba55d3;
+  transform: scale(1.1);
+}
+
+.control-group input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #9333ea;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.control-group input[type="range"]::-moz-range-thumb:hover {
+  background: #ba55d3;
+  transform: scale(1.1);
+}
+
+.control-group input[type="color"] {
+  width: 100%;
+  height: 40px;
+  border: 2px solid rgba(147, 51, 234, 0.5);
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+}
+
+#reset-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: #9333ea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: all 0.2s;
+}
+
+#reset-btn:hover {
+  background: #ba55d3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(147, 51, 234, 0.4);
+}
+
+#reset-btn:active {
+  transform: translateY(0);
+}
+
+.toggle-particle-btn {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 1001;
+}
+
+.toggle-particle-btn button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-family: share-tech-mono-regular, monospace;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.toggle-particle-btn button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.toggle-particle-btn button:active {
+  transform: translateY(0);
+}
+
+.toggle-particle-btn button[aria-pressed="false"] {
+  background: linear-gradient(135deg, #434343 0%, #000000 100%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  .control-panel {
+    top: auto;
+    bottom: 20px;
+    right: 10px;
+    left: 10px;
+    min-width: auto;
+    max-width: calc(100% - 20px);
+    padding: 1rem;
+  }
+  
+  .control-panel h3 {
+    font-size: 1rem;
+  }
+  
+  .control-group label {
+    font-size: 0.75rem;
+  }
+}
+
+/* ------------------------------------------------------------------
+   FOOTER
+   ------------------------------------------------------------------ */
+
+.site-footer {
+  background: rgba(0, 0, 0, 0.9);
+  padding: 2rem;
+  text-align: center;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 10;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-content p {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0.5rem 0;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.9rem;
+}
+
+.footer-tagline {
+  color: rgba(119, 0, 255, 0.9);
+  font-style: italic;
+  font-size: 0.85rem !important;
+}
+
+/* Mobile responsiveness for footer */
+@media (max-width: 640px) {
+  .site-footer {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* ==================================================================
+   RESUME SECTIONS STYLING
+   ================================================================== */
+
+main {
+    position: relative;
+    z-index: 1;
+}
+
+section {
+    padding: 60px 0;
+    border-bottom: 1px solid #eee;
+}
+
+section h2 {
+    font-size: 2rem;
+    color: var(--accent-dark);
+    margin: 0 0 1.5rem 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+section h3 {
+    font-size: 1.3rem;
+    color: var(--accent-dark);
+    margin: 1.5rem 0 0.5rem 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.aboutMe, .education-section, .experience-section {
+    background: #fff;
+    padding: 3rem 0;
+    min-height: auto;
+    display: block;
+    position: relative;
+    z-index: 5;
+    border: 2px solid red; /* Debug border */
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 2rem 1rem !important;
+}
+
+.about-image {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 3px solid #0066cc;
+    background: #fff;
+}
+
+.about-content h2 {
+    margin-top: 0;
+}
+
+.about-content p,
+.education-section p,
+.experience-section p,
+.technical-skills p,
+section p {
+    color: #222 !important;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.aboutMe .container, .education-section .container, .experience-section .container {
+    padding: 2rem 1rem;
+}
+
+.aboutMe h2, .education-section h2, .experience-section h2 {
+    font-size: 2rem;
+    color: var(--accent-dark);
+    margin-bottom: 2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.aboutMe p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #222;
+    margin-bottom: 1rem;
+}
+
+.about-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #222;
+    margin-bottom: 1rem;
+}
+
+.education-item, .experience-item {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--accent);
+}
+
+.institution, .organization {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.details, .duration {
+    color: #777;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+.achievement {
+    color: #666;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+.technical-skills {
+    background: #fff;
+    padding: 3rem 0;
+    min-height: auto;
+    display: block;
+    position: relative;
+    z-index: 5;
+    border: 2px solid blue; /* Debug border */
+}
+
+.technical-skills .container {
+    padding: 2rem 1rem;
+}
+
+.technical-skills h2 {
+    font-size: 2rem;
+    color: var(--accent-dark);
+    margin-bottom: 2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.skills-category {
+    margin-bottom: 2rem;
+}
+
+.skills-category h3 {
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.5rem;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+}
+
+.skills-list li {
+    padding: 0.75rem;
+    background: #fff;
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+}
+
+.skill-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    border-top: 4px solid var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.skill-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+}
+
+.skill-card li {
+    padding: 0.5rem 0;
+    color: #666;
+    position: relative;
+    padding-left: 20px;
+}
+
+.skill-card li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.github-link {
+    margin-top: 1rem;
+}
+
+.github-link a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.github-link a:hover {
+    text-decoration: underline;
+}
+
+.site-footer {
+    background: var(--accent-dark);
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    border: none;
+}
+
+.footer-content p {
+    margin: 0.5rem 0;
+}
+
+.footer-contact a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    text-decoration: underline;
+}
+
+.hero-bleed {
+    margin-top: var(--header-h);
+    background: linear-gradient(to right, rgba(0,102,204,0.05), rgba(0,102,204,0.05));
+    padding: 60px 0;
+}
+
+/* end of stylesheet */
