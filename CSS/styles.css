@@ -6,7 +6,7 @@
 
 :root {
   --bg: #fffefe;
-  --text: #5c5c5c;
+  --text: #929292;
   --text-white: #f3f1f1;
   --accent: #0066cc;
   --accent-dark: #004499;
@@ -773,7 +773,9 @@ section h3 {
     padding: 3rem 0;
     min-height: auto;
     display: block;
-    grid-template-columns: none;
+    position: relative;
+    z-index: 5;
+    border: 2px solid red; /* Debug border */
 }
 
 .about-container {
@@ -786,6 +788,8 @@ section h3 {
 
 .about-image {
     text-align: center;
+    position: relative;
+    z-index: 10;
 }
 
 .about-image img {
@@ -793,6 +797,8 @@ section h3 {
     height: auto;
     border-radius: var(--radius);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 3px solid #0066cc;
+    background: #fff;
 }
 
 .about-content h2 {
@@ -866,6 +872,9 @@ section p {
     padding: 3rem 0;
     min-height: auto;
     display: block;
+    position: relative;
+    z-index: 5;
+    border: 2px solid blue; /* Debug border */
 }
 
 .technical-skills .container {
